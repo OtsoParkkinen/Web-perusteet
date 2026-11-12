@@ -373,3 +373,19 @@ input, select {
       "small2";
   }
 }
+.card {
+  position: relative;
+}
+
+.badge {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  background-color: var(--sun-yellow);
+  color: var(--text-color);
+  font-weight: 700;
+  font-size: 0.85rem;
+  padding: 0.25rem 0.6rem;
+  border-radius: 4px;
+  border: 1px solid var(--mandarin);
+}
