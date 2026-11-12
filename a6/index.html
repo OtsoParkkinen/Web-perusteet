@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aurinkomatkat – Etusivu</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">Aurinkomatkat</a>
+      <nav class="main-nav" aria-label="Päävalikko">
+        <ul>
+          <li><a href="index.html" aria-current="page">Etusivu</a></li>
+          <li><a href="matkainfo.html">Matkainfo</a></li>
+          <li><a href="matkatoive.html">Matkatoive</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="container">
+      <div class="hero-grid">
+        <div class="hero-text">
+          <h1>Lähde kohti aurinkoa ja lämpöä</h1>
+          <p>Järjestämme aurinkoisia lomia parhaisiin etelä-euroopan kohteisiin. Valitse paketti ja nauti lomasta.</p>
+          <a href="matkainfo.html" class="btn">Lue matkainfo</a>
+        </div>
+        <div class="hero-image">
+          <img src="images/esittely.webp" alt="Aurinkoinen hiekkaranta ja sininen meri">
+        </div>
+      </div>
+    </section>
+
+    <section class="container" aria-labelledby="kohteet-otsikko">
+      <h2 id="kohteet-otsikko">Suosituimmat kohteet</h2>
+      <div class="destinations-grid">
+        
+        <article class="card card-small-1">
+          <img src="images/rodos.webp" alt="Rodoksen kallioinen poukama ja kirkas vesi">
+          <div class="card-content">
+            <h3>Rodos</h3>
+            <p class="card-meta">Kesto: 7 päivää · Alkaen 590 €</p>
+          </div>
+        </article>
+
+        <article class="card card-small-2">
+          <img src="images/kreeta.webp" alt="Kreetan ranta">
+          <div class="card-content">
+            <h3>Kreeta</h3>
+            <p class="card-meta">Kesto: 7 päivää · Alkaen 620 €</p>
+          </div>
+        </article>
+
+        <article class="card card-large">
+          <img src="images/sisilia.webp" alt="Sisilian ranta">
+          <div class="card-content">
+            <h3>Sisilia</h3>
+            <p class="card-meta">Kesto: 10 päivää · Alkaen 850 €</p>
+            <a href="matkatoive.html" class="btn">Lähetä matkatoive</a>
+          </div>
+        </article>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p><strong>Aurinkomatkat Oy</strong> · Kokkolakatu 5, 67100 Kokkola</p>
+      <p>Puh. 040 987 6543 · info@aurinkomatkat.fi</p>
+    </div>
+  </footer>
+
+</body>
+</html>

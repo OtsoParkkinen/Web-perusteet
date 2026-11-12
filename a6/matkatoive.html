@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aurinkomatkat – Matkatoive</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">Aurinkomatkat</a>
+      <nav class="main-nav" aria-label="Päävalikko">
+        <ul>
+          <li><a href="index.html">Etusivu</a></li>
+          <li><a href="matkainfo.html">Matkainfo</a></li>
+          <li><a href="matkatoive.html" aria-current="page">Matkatoive</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section>
+      <h1>Lähetä matkatoive</h1>
+      <p style="margin-bottom: 1.25rem;">Täytä alla oleva lomake. <em>(Tämä lomake on harjoitus, eikä tietoja lähetetä palvelimelle.)</em></p>
+
+      <div class="wish-layout">
+        <form id="matkatoive-lomake" class="wish-form" novalidate>
+          <div class="form-group">
+            <label for="sahkoposti">Sähköposti *</label>
+            <input type="email" id="sahkoposti" name="sahkoposti" placeholder="nimi@esimerkki.fi" required aria-describedby="sahkoposti-virhe">
+            <span id="sahkoposti-virhe" class="error-message" aria-live="polite"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="kohde">Kohde *</label>
+            <select id="kohde" name="kohde" required>
+              <option value="">Valitse kohde</option>
+              <option value="Rodos">Rodos</option>
+              <option value="kreeta">Kreeta</option>
+              <option value="sisilia">Sisilia</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="lahtopaiva">Lähtöpäivä *</label>
+            <input type="date" id="lahtopaiva" name="lahtopaiva" required>
+          </div>
+
+          <div class="form-group">
+            <label for="matkustajat">Matkustajien määrä (1–8) *</label>
+            <input type="number" id="matkustajat" name="matkustajat" min="1" max="8" value="1" required>
+          </div>
+
+          <button type="submit" class="btn">Lähetä matkatoive</button>
+
+          <div id="lomake-palaute" class="form-feedback" hidden></div>
+        </form>
+
+        <aside class="contact-box">
+          <h2>Yhteystiedot</h2>
+          <p><strong>Aurinkomatkat Oy</strong></p>
+          <p>Osoite: Kokkolakatu 5, 67100 Kokkola</p>
+          <p>Puhelin: 040 987 6543</p>
+          <p>Sähköposti: info@aurinkomatkat.fi</p>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p><strong>Aurinkomatkat Oy</strong> · Kokkolakatu 5, 67100 Kokkola</p>
+      <p>Puh. 040 987 6543 · info@aurinkomatkat.fi</p>
+    </div>
+  </footer>
+
+  <script>
+    const form = document.getElementById('matkatoive-lomake');
+    const emailInput = document.getElementById('sahkoposti');
+    const emailError = document.getElementById('sahkoposti-virhe');
+    const feedbackBox = document.getElementById('lomake-palaute');
+
+    function validateEmail() {
+      if (emailInput.validity.valueMissing) {
+        emailError.textContent = 'Sähköposti on pakollinen.';
+        return false;
+      } else if (emailInput.validity.typeMismatch) {
+        emailError.textContent = 'Kirjoita oikea sähköpostiosoite (esim. nimi@esimerkki.fi).';
+        return false;
+      } else {
+        emailError.textContent = '';
+        return true;
+      }
+    }
+
+    emailInput.addEventListener('blur', validateEmail);
+    emailInput.addEventListener('input', () => {
+      if (emailError.textContent !== '') validateEmail();
+    });
+
+    form.addEventListener('submit', function (event) {
+      event.preventDefault();
+      const isEmailValid = validateEmail();
+
+      if (!form.checkValidity() || !isEmailValid) {
+        form.reportValidity();
+        return;
+      }
+
+      feedbackBox.hidden = false;
+      feedbackBox.textContent = 'Harjoituslomake lähetetty onnistuneesti!';
+      form.reset();
+      emailError.textContent = '';
+    });
+  </script>
+
+</body>
+</html>
